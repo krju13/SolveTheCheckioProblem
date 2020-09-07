@@ -1,13 +1,16 @@
 def frequency_sort(items):
-    res=[]
     dic={}
-    for n in items:
-        if dic.get(n)==None:
-            for a in range(items.count(n)):
-                res.append(n)
-            dic[n]=1
-    return res
-
+    for i in items:
+        if dic.get(i)==None:
+            dic[i]=items.count(i)
+    dic=sorted(dic.items(),reverse=True,key=lambda i:i[1])
+    print(dic)
+    items=[]
+    for key,value in dic:
+        while value>0:
+            value-=1
+            items.append(key)
+    return items
 
 if __name__ == '__main__':
     print("Example:")
